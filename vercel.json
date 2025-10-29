@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/trpc/:path*",
-      "destination": "https://your-railway-backend-url.up.railway.app/api/trpc/:path*"
+      "destination": "https://taka-ni-mali-production.up.railway.app/api/trpc/:path*"
     },
     {
       "source": "/(.*)",
