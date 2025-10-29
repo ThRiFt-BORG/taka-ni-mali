@@ -1,30 +1,45 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
-
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
+
+// Determine the root of the project (e.g., D:/Taka_ni_Mali)
+const projectRoot = path.resolve(import.meta.dirname);
+// Determine the root of the client app (e.g., D:/Taka_ni_Mali/client)
+const clientRoot = path.resolve(projectRoot, 'client');
+
 
 export default defineConfig({
   plugins,
+
+  // --- CHANGE #1: The root is now the client folder itself ---
+  root: clientRoot,
+  
+  // --- CHANGE #2: The envDir points to the project root to find your .env files ---
+  envDir: projectRoot,
+
   resolve: {
+    // --- CHANGE #3: Update aliases to be relative to the client/src folder ---
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": path.resolve(clientRoot, "src"),
+      "@shared": path.resolve(projectRoot, "shared"),
+      "@assets": path.resolve(projectRoot, "attached_assets"),
     },
   },
-  envDir: path.resolve(import.meta.dirname),
-  root: path.resolve(import.meta.dirname, "client"),
-  publicDir: path.resolve(import.meta.dirname, "client", "public"),
+
+  publicDir: "public", // This will now correctly resolve to `client/public`
+
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // --- CHANGE #4: The output directory is now a simple `dist` folder ---
+    // This will correctly create the output at `client/dist`, which Vercel expects.
+    outDir: "dist",
     emptyOutDir: true,
   },
+  
   server: {
     host: true,
     allowedHosts: [
