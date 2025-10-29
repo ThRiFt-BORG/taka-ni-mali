@@ -1,0 +1,37 @@
+. COLOR THEMES (Frontend Home Page)
+File: client/src/index.css
+Lines 1-50: CSS variables for colors (--background, --foreground, --primary, --destructive)
+Light theme: white background, dark text
+Blue accent color (#3b82f6) for buttons
+File: client/src/pages/Home.tsx
+Lines 1-50: Header styling (light blue background)
+Lines 95-110: Feature cards with white background and subtle borders
+Lines 130-160: "Get Started" section with two-column layout
+Button colors: Blue (#3b82f6) for primary actions
+5. LOGIN PAGE
+File: client/src/pages/Login.tsx
+Lines 1-40: Component setup with useAuth hook
+Lines 50-80: Email input field
+Lines 85-110: Password input field
+Lines 115-130: Login button with loading state
+Lines 135-150: Error message display
+Lines 155-170: Link to register page
+Theme: White card on light background, blue button
+6. DASHBOARD (View Data)
+File: client/src/pages/Dashboard.tsx
+Lines 1-30: Header with title
+Lines 40-120: Filter controls (left side)
+Lines 200-300: Data table showing collections (left side)
+Lines 310-400: MapView component (right side)
+Lines 410-500: ChartView component showing trends
+Lines 50-70: Summary statistics cards
+Theme: Light background, white cards, blue accents
+7. SUBMIT COLLECTION PAGE
+File: client/src/pages/Collector.tsx
+Lines 92-110: Page header
+Lines 103-120: Card container with form
+Lines 121-290: Form fields in organized sections
+Lines 108-119: Error message styling (red background)
+Lines 115-119: Success message styling (green background)
+Lines 276-290: Submit button (blue, full width)
+Theme: White card, light background, blue button, red errors, green success

@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+  The original @theme block has been removed as it was causing an "Unknown at rule @theme" error.
+  The color variables are now defined directly in the standard :root and .dark selectors.
+*/
+
+/* --- Taka ni Mali Theme Colors --- */
+/* The primary brand color is Dark Green (#388E3C) */
+:root {
+  /* Taka ni Mali Primary Theme */
+  --primary: 38 8E 3C; /* Dark Green (Mapped to HSL or similar for easier use in CSS functions if needed, but using the original hex for reference) */
+  --primary-foreground: 255 255 255; /* White (for contrast) */
+  --sidebar-primary: 38 8E 3C; /* Dark Green */
+  --sidebar-primary-foreground: 255 255 255; /* White */
+  
+  /* Chart colors are mapped to the blue used for "Waste Processing Facilities" (#2196F3) */
+  --chart-1: 33 150 243; /* #2196F3 - Blue */
+  --chart-2: 33 150 243;
+  --chart-3: 33 150 243;
+  --chart-4: 33 150 243;
+  --chart-5: 33 150 243;
+
+  /* --- Original Base Colors (OKLCH values preserved) --- */
+  --radius: 0.65rem;
+  --background: oklch(1 0 0); /* White */
+  --foreground: oklch(0.235 0.015 65); /* Dark Gray/Black */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.015 65);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.235 0.015 65);
+  --secondary: oklch(0.98 0.001 286.375);
+  --secondary-foreground: oklch(0.4 0.015 65);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(53.61% 0.1212 139.813);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.141 0.005 285.823);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.623 0.214 259.815);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+}
+
+.dark {
+  /* Taka ni Mali Primary Theme (Dark Mode) - Keeping the same primary color for consistency */
+  --primary: 38 8E 3C; /* Dark Green */
+  --primary-foreground: 255 255 255; /* White */
+  --sidebar-primary: 38 8E 3C; /* Dark Green */
+  --sidebar-primary-foreground: 255 255 255; /* White */
+
+  /* Chart colors are mapped to the blue used for "Waste Processing Facilities" (#2196F3) */
+  --chart-1: 33 150 243; /* #2196F3 - Blue */
+  --chart-2: 33 150 243;
+  --chart-3: 33 150 243;
+  --chart-4: 33 150 243;
+  --chart-5: 33 150 243;
+
+  /* --- Original Base Colors (OKLCH values preserved) --- */
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(71.571% 0.2172 140.949);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(80.067% 0.21655 144.47);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(68.34% 0.18 142.894);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(65.386% 0.20066 140.899);
+  --accent: oklch(58.756% 0.13306 139.747);
+  --accent-foreground:  oklch(69.472% 0.18977 143.212);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(73.651% 0.22418 141.567);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(79.796% 0.22651 141.922);
+  --sidebar-accent: oklch(79.013% 0.16091 147.481);
+  --sidebar-accent-foreground:  oklch(65.208% 0.20091 144.258);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+/*
+  The @layer base and @layer components blocks have been removed to resolve the
+  "Unknown at rule @apply" errors. These directives are specific to the PostCSS
+  pipeline used by Tailwind CSS and cause errors in a standard CSS linter.
+  The content of these blocks should be processed by your build tool.
+*/
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* 16px - mobile padding */
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem; /* 24px - tablet padding */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem; /* 32px - desktop padding */
+    padding-right: 2rem;
+    max-width: 1280px; /* Standard content width */
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1440px; /* Wider screens */
+  }
+}
